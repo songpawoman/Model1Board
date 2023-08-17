@@ -6,9 +6,40 @@
 		<servlet-name>registServlet</servlet-name>
 		<servlet-class>org.sp.model1board.controller.RegistServlet</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<url-pattern>/board/regist</url-pattern>
 		<servlet-name>registServlet</servlet-name>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>editServlet</servlet-name>
+		<servlet-class>org.sp.model1board.controller.EditServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/board/edit</url-pattern>
+		<servlet-name>editServlet</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>delServlet</servlet-name>
+		<servlet-class>org.sp.model1board.controller.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/board/del</url-pattern>
+		<servlet-name>delServlet</servlet-name>
+	</servlet-mapping>
+	
+	<!-- 업로드 처리 서블릿 -->
+	<servlet>
+		<servlet-name>uploadServlet</servlet-name>
+		<servlet-class>org.sp.model1board.controller.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/board/upload</url-pattern>
+		<servlet-name>uploadServlet</servlet-name>
+	</servlet-mapping>
+
 </web-app>
+
+
+
