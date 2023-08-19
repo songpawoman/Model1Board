@@ -11,4 +11,31 @@
 		<url-pattern>/board/regist</url-pattern>
 		<servlet-name>registServlet</servlet-name>
 	</servlet-mapping>
+
+	<!-- 겔러리 글 쓰기를 처리하는 서블릿 매핑 -->
+	<servlet>
+		<servlet-name>registGallery</servlet-name>
+		<servlet-class>org.sp.model1board.controller.RegistGallery</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<url-pattern>/gallery/regist</url-pattern>
+		<servlet-name>registGallery</servlet-name>
+	</servlet-mapping>
+	
+	<!-- 파일을 다운로드 요청을 처리하는 서블릿 -->
+	<servlet>
+		<servlet-name>downServlet</servlet-name>
+		<servlet-class>org.sp.model1board.controller.DownServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<url-pattern>/gallery/download</url-pattern>
+		<servlet-name>downServlet</servlet-name>
+	</servlet-mapping>
+	
+	
+	
 </web-app>
+
+

@@ -1,4 +1,4 @@
-<%@page import="org.sp.model1board.util.PoolManager"%>
+<%@page import="org.sp.boardapp.util.PoolManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%!
