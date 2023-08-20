@@ -20,7 +20,7 @@ function upload(){
 </head>
 <body>
 <pre>		
-	<form name="form1" enctype="" method="post" action="/board/upload.jsp">
+	<form name="form1" enctype="" method="post" action="/board/upload">
 		<input type="text" name="title" placeholder="제목을 입력">
 		<input type="file" name="photo">
 		<button onClick="upload()">업로드</button>

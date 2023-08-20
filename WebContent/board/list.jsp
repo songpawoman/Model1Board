@@ -28,6 +28,11 @@ th, td {
 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
+
+a{
+	text-decoration:none;
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -54,7 +59,7 @@ $(function(){
 		<%Board board = boardList.get(i); %>
 		<tr>
 			<td>Jill</td>
-			<td><%=board.getTitle() %></td>
+			<td><a href="/board/content.jsp?board_idx=<%=board.getBoard_idx()%>"><%=board.getTitle() %></a></td>
 			<td><%=board.getWriter() %></td>
 			<td><%=board.getRegdate() %></td>
 			<td><%=board.getHit() %></td>
