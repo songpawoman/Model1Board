@@ -77,6 +77,87 @@ public class GalleryDAO {
 		}
 		return list;
 	}
+	
+	//글상세보기
+	public Gallery select(int gallery_idx) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Gallery gallery=null;
+		
+		con=pool.getConnection();
+		String sql="select * from gallery where gallery_idx=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, gallery_idx);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				gallery = new Gallery();
+				
+				gallery.setGallery_idx(rs.getInt("gallery_idx"));
+				gallery.setTitle(rs.getString("title"));
+				gallery.setWriter(rs.getString("writer"));
+				gallery.setContent(rs.getString("content"));
+				gallery.setFilename(rs.getString("filename"));
+				gallery.setRegdate(rs.getString("regdate"));
+				gallery.setHit(rs.getInt("hit"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			pool.release(con, pstmt, rs);
+		}
+		return gallery;
+	}
+	
+	//수정하기
+	public int update(Gallery gallery) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int result=0;
+		
+		con=pool.getConnection();
+		String sql="update gallery set title=?, writer=?, content=?, filename=? where gallery_idx=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, gallery.getTitle());
+			pstmt.setString(2, gallery.getWriter());
+			pstmt.setString(3, gallery.getContent());
+			pstmt.setString(4, gallery.getFilename());
+			pstmt.setInt(5, gallery.getGallery_idx());
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			pool.release(con, pstmt);
+		}
+		return result;
+	}
+	
+	
+	//삭제하기 
+	public int delete(int gallery_idx) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int result=0;
+		
+		con=pool.getConnection();
+		String sql="delete from gallery where gallery_idx=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, gallery_idx);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			pool.release(con, pstmt);
+		}
+		return result;
+	}
+	
 }
 
 

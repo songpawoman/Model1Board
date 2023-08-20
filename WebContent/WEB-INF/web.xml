@@ -34,6 +34,17 @@
 		<servlet-name>downServlet</servlet-name>
 	</servlet-mapping>
 	
+	<!-- 수정 요청을 처리하는 서블릿 -->
+	<servlet>
+		<servlet-name>updateServlet</servlet-name>
+		<servlet-class>org.sp.model1board.controller.UpdateServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<url-pattern>/gallery/update</url-pattern>
+		<servlet-name>updateServlet</servlet-name>
+	</servlet-mapping>
+	
 	
 	
 </web-app>
